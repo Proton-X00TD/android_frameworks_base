@@ -358,7 +358,7 @@ public class NotificationPanelViewController extends PanelViewController {
     private boolean mQsTracking;
 
     private GestureDetector mDoubleTapToSleepGesture;
-    private boolean mIsLockscreenDoubleTapEnabled;
+    private boolean mIsDoubleTapEnabled;
     private int mStatusBarHeaderHeight;
 
     /**
@@ -3872,8 +3872,8 @@ public class NotificationPanelViewController extends PanelViewController {
         updateMaxDisplayedNotifications(true);
     }
 
-    public void setLockscreenDoubleTapToSleep(boolean isDoubleTapEnabled) {
-        mIsLockscreenDoubleTapEnabled = isDoubleTapEnabled;
+    public void setDoubleTapToSleep(boolean isDoubleTapEnabled) {
+        mIsDoubleTapEnabled = isDoubleTapEnabled;
     }
 
     public void updateDoubleTapToSleep(boolean doubleTapToSleepEnabled) {
@@ -3994,7 +3994,7 @@ public class NotificationPanelViewController extends PanelViewController {
                     expand(true /* animate */);
                 }
 
-                if ((mIsLockscreenDoubleTapEnabled && !mPulsing && !mDozing
+                if ((mIsDoubleTapEnabled && !mPulsing && !mDozing
                         && mBarState == StatusBarState.KEYGUARD) ||
                         (!mQsExpanded && mDoubleTapToSleepEnabled
                         && event.getY() < mStatusBarHeaderHeight)) {
